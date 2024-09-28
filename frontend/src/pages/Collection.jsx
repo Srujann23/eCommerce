@@ -118,7 +118,7 @@ const Collection = () => {
     {/* Right Side */}
     <div className="flex-1">
       <div className='flex justify-between text-base sm:text-2x1 mb-4'>
-          <Title text1={'ALL'} text2={'COLLECTIONS'}/>
+          <Title text1={'ALL '} text2={'COLLECTIONS'}/>
           {/*Product Sort*/}
           <select onChange={(e)=>setSortType(e.target.value)} className='border-2 border-gray-300 text-sm-px-2' >
             <option value="relevent">Sort By: Relevant</option>
