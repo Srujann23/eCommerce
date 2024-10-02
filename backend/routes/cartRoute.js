@@ -1,10 +1,11 @@
-import exoress from 'express'
-import { addToCart, getUserCart, updateCart } from '../controllers/cartController'
+import express from 'express'
+import { addToCart, getUserCart, updateCart } from '../controllers/cartController.js'
+import authUser from '../middleware/auth.js'
 
 const cartRouter = express.Router()
 
-cartRouter.post('/get',getUserCart)
-cartRouter.post('/add',getUserCart)
-cartRouter.post('/update',getUserCart)
+cartRouter.post('/get',authUser,getUserCart)
+cartRouter.post('/add',authUser,getUserCart)
+cartRouter.post('/update',authUser,getUserCart)
 
 export default cartRouter
