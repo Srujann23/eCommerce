@@ -7,13 +7,13 @@ const Sidebar = () => {
 
     // Function to handle link click
     const handleLinkClick = () => {
-        if (window.innerWidth < 768) { // Adjust this value based on your breakpoint
+        if (window.innerWidth < 768) {
             setIsOpen(false); // Close the sidebar on small screens
         }
     };
 
     return (
-        <div className="relative">
+        <div className="relative h-screen"> {/* Ensure full screen height */}
             {/* Toggle Button for Small Screens */}
             <button
                 className="md:hidden p-2 bg-gray-800 text-white rounded"
@@ -26,9 +26,9 @@ const Sidebar = () => {
             <div 
                 className={`fixed inset-y-0 left-0 bg-white shadow-md transition-transform transform 
                 ${isOpen ? 'translate-x-0' : '-translate-x-full'} 
-                md:translate-x-0 md:relative md:w-[250px] min-h-screen border-r-2`} // Set a fixed width for the sidebar in full screen
+                md:translate-x-0 md:relative w-[250px] h-full border-r-2`} // Fixed width and full height
             >
-                <div className='flex flex-col gap-4 pt-6 pl-5 text-[15px]'>
+                <div className='flex flex-col gap-4 pt-6 pl-5 text-[15px] h-full'>
                     <NavLink 
                         className='flex items-center gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l' 
                         to="/add"
