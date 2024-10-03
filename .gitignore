@@ -15,7 +15,7 @@ dist-ssr
 
 =======
 >>>>>>> recovered-branch
-.env
+*.env
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
