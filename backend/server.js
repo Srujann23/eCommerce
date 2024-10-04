@@ -18,13 +18,13 @@ app.use(express.json());
 app.use(morgan('dev'));
 
 // CORS Configuration
-const allowedOrigins = ['https://boldbuy.vercel.app'];
+const allowedOrigins = ['https://boldbuy.vercel.app']; // Allow only production origin
 app.use(cors({
   origin: function (origin, callback) {
     if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
+      callback(null, true); // Allow the request
     } else {
-      callback(new Error('Not allowed by CORS'));
+      callback(new Error('Not allowed by CORS')); // Block the request
     }
   },
 }));
