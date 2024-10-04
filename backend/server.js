@@ -12,7 +12,12 @@ import orderRouter from './routes/orderRoute.js';
 //App Config
 const app = express();
 const port = process.env.PORT || 4000;
-connectDB();
+connectDB().then(() => {
+    console.log("Database connected");
+  }).catch(err => {
+    console.error("Database connection error: ", err);
+  });
+  
 connectCloudinary();
 
 //midddelwares
