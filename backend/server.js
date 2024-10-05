@@ -17,10 +17,10 @@ connectCloudinary();
 
 //midddelwares
 const corsOptions = {
-    origin: '*', // Allow all origins
+    origin: 'http://localhost:5173', // Allow all origins
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Specify allowed methods
     allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
-    credentials:true,
+    credentials: true,
 };
 
 app.use(cors(corsOptions));
@@ -29,13 +29,13 @@ app.use(express.json())
 app.use(morgan('dev'))
 
 //api eps
-app.use('/api/user',userRouter)
-app.use('/api/product',productRouter)
-app.use('/api/cart',cartRouter)
-app.use('/api/order',orderRouter)
+app.use('/api/user', userRouter)
+app.use('/api/product', productRouter)
+app.use('/api/cart', cartRouter)
+app.use('/api/order', orderRouter)
 
-app.get('/',(req,res)=>{
+app.get('/', (req, res) => {
     res.send('Hello ')
 })
 
-app.listen(port, ()=>console.log("Server Running on PORT: "+port))
+app.listen(port, () => console.log("Server Running on PORT: " + port))
