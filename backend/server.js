@@ -20,12 +20,11 @@ const corsOptions = {
     origin: '*', // Allow all origins
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Specify allowed methods
     allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+    credentials: true,
 };
 
 app.use(cors(corsOptions));
-
 app.use(express.json())
-app.use(cors())
 app.use(morgan('dev'))
 
 //api eps
@@ -35,7 +34,7 @@ app.use('/api/cart',cartRouter)
 app.use('/api/order',orderRouter)
 
 app.get('/',(req,res)=>{
-    res.send('Hello ')
+    res.send('Hello from backend server')
 })
 
 app.listen(port, ()=>console.log("Server Running on PORT: "+port))
