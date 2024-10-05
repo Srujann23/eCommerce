@@ -17,13 +17,13 @@ connectCloudinary();
 
 //midddelwares
 app.use(express.json())
-const corsOptions = {
-    origin: 'http://localhost:5173', // Allow all origins
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Specify allowed methods
-    allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
-    credentials: true,
-};
-app.use(cors(corsOptions));
+// const corsOptions = {
+//     origin: 'http://localhost:5173', // Allow all origins
+//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Specify allowed methods
+//     allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
+//     credentials: true,
+// };
+app.use(cors());
 app.use(morgan('dev'))
 
 //api eps
