@@ -24,24 +24,24 @@ app.use(express.json())
 //     credentials: true,
 // };
 app.use((req, res, next) => {
-    res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+    res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173"); // Replace with your frontend domain
     res.setHeader(
-      "Access-Control-Allow-Headers",
-      "Access-Control-Allow-Origin",
-      "Origin, X-Requested-With, Content-Type, Accept"
+        "Access-Control-Allow-Headers",
+
+        "Access-Control-Allow-Origin, Origin, X-Requested-With, Content-Type, Accept"
     );
     res.setHeader(
-      "Access-Control-Allow-Methods",
-      "GET, POST, PUT, DELETE, OPTIONS"
+        "Access-Control-Allow-Methods",
+
+        "GET, POST, PUT, DELETE, OPTIONS"
     );
-  
-    // If it's a preflight request, respond with 204 No Content
+
     if (req.method === 'OPTIONS') {
-      return res.sendStatus(204);
+        return  res.sendStatus(204);
     }
-  
+
     next();
-  });
+});
 app.use(morgan('dev'))
 
 //api eps
