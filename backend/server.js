@@ -1,10 +1,5 @@
 import express from 'express'
 import cors from 'cors'
-<<<<<<< HEAD
-// import cors from 'cors'
-=======
-import cors from 'cors'
->>>>>>> d54adff (final)
 import 'dotenv/config'
 import morgan from 'morgan';
 import connectDB from './config/mongodb.js';
@@ -20,43 +15,6 @@ const port = process.env.PORT || 4000;
 connectDB();
 connectCloudinary();
 
-//midddelwares
-const corsOptions = {
-    origin: '*', // Allow all origins
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Specify allowed methods
-    allowedHeaders: ['Content-Type', 'Authorization','token'], // Specify allowed headers
-    credentials: true,
-};
-
-app.use(cors(corsOptions));
-
-app.use(express.json())
-// const corsOptions = {
-//     origin: 'http://localhost:5173', // Allow all origins
-//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Specify allowed methods
-//     allowedHeaders: ['Content-Type', 'Authorization'], // Specify allowed headers
-//     credentials: true,
-// };
-// app.use((req, res, next) => {
-//     res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173"); // Replace with your frontend domain
-//     res.setHeader(
-//         "Access-Control-Allow-Headers",
-
-//         "Access-Control-Allow-Origin, Origin, X-Requested-With, Content-Type, Accept"
-//     );
-//     res.setHeader(
-//         "Access-Control-Allow-Methods",
-
-//         "GET, POST, PUT, DELETE, OPTIONS"
-//     );
-
-//     if (req.method === 'OPTIONS') {
-//         return  res.sendStatus(204);
-//     }
-
-//     next();
-// });
-app.use(morgan('dev'))
 
 const corsOptions = {
     origin: '*', // Allow all origins
@@ -66,7 +24,6 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
 app.use(express.json())
 app.use(morgan('dev'))
 
