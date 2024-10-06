@@ -15,7 +15,18 @@ const port = process.env.PORT || 4000;
 connectDB();
 connectCloudinary();
 
-// CORS middleware
+// Manually set CORS headers for serverless functions
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*'); // Allow all origins
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(204); // Preflight request
+  }
+  next();
+});
+
+// CORS middleware (can remove or keep based on tests)
 app.use(cors({
     origin: '*', // Allow all origins
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], 
@@ -23,9 +34,9 @@ app.use(cors({
 }));
 
 app.use(morgan('dev'));
-app.use(express.json());
+app.use(express.json()); // Express JSON parser
 
-// API endpoints
+// API endpoints (After middleware)
 app.use('/api/user', userRouter);
 app.use('/api/product', productRouter);
 app.use('/api/cart', cartRouter);
