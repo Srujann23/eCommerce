@@ -1,5 +1,9 @@
 import express from 'express'
+<<<<<<< HEAD
 // import cors from 'cors'
+=======
+import cors from 'cors'
+>>>>>>> d54adff (final)
 import 'dotenv/config'
 import morgan from 'morgan';
 import connectDB from './config/mongodb.js';
@@ -42,6 +46,18 @@ app.use(express.json())
 
 //     next();
 // });
+app.use(morgan('dev'))
+
+const corsOptions = {
+    origin: '*', // Allow all origins
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Specify allowed methods
+    allowedHeaders: ['Content-Type', 'Authorization','token'], // Specify allowed headers
+    credentials: true,
+};
+
+app.use(cors(corsOptions));
+
+app.use(express.json())
 app.use(morgan('dev'))
 
 //api eps
